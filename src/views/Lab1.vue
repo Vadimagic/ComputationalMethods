@@ -1,19 +1,19 @@
 <template>
 	<div class="container">
-		<h2>Hello</h2>
+		<h2>Лабораторная работа №1</h2>
 		<div class="forms">
 			<form action="#" class="form division">
 				<div class="equel">
 					<div class="equality">
-						<input type="text" class="numerator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input type="text" class="input" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 						<div class="line"></div>
-						<input type="text" class="denominator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input type="text" class="input" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 					</div>
 					<div class="equally"> 
 						<span>
 							= 
 						</span>
-						<input type="text" class="answer_1">
+						<input type="text input" class="answer_1">
 					</div>
 				</div>
 				<div class="reply replyDivision">
@@ -27,13 +27,13 @@
 			<form action="#" class="form root">
 				<div class="equel">
 					<div class="expression">
-						<input type="text" class="square" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input type="text input" class="square" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 					</div>
 					<div class="equally"> 
 						<span>
 							= 
 						</span>
-						<input type="text" class="answer_2">
+						<input type="text input" class="answer_2">
 					</div>
 				</div>
 				<div class="reply replyRoot">
@@ -153,6 +153,7 @@ display: inline-block;
 
 .square {
 	padding-left: 15px;
+	background: url('../assets/img/square.png') 0 0/contain no-repeat;
 }
 
 #answer {
