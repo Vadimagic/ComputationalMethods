@@ -104,6 +104,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+	margin: 10px;
+}
+.container {
+	border: 3px solid #000;
+	border-radius: 20px;
+	margin-top: 20px;
+	padding: 20px;
+}
 
 .forms {
 	display: flex;
