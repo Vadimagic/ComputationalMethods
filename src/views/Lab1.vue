@@ -1,19 +1,19 @@
 <template>
 	<div class="container">
-		<h2>Лабораторная работа №1</h2>
+		<h2>Hello</h2>
 		<div class="forms">
 			<form action="#" class="form division">
 				<div class="equel">
 					<div class="equality">
-						<input type="text" class="input" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input type="text" class="numerator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 						<div class="line"></div>
-						<input type="text" class="input" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input type="text" class="denominator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 					</div>
 					<div class="equally"> 
 						<span>
 							= 
 						</span>
-						<input type="text input" class="answer_1">
+						<input type="text" class="answer_1">
 					</div>
 				</div>
 				<div class="reply replyDivision">
@@ -27,13 +27,13 @@
 			<form action="#" class="form root">
 				<div class="equel">
 					<div class="expression">
-						<input type="text input" class="square" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input type="text" class="square" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 					</div>
 					<div class="equally"> 
 						<span>
 							= 
 						</span>
-						<input type="text input" class="answer_2">
+						<input type="text" class="answer_2">
 					</div>
 				</div>
 				<div class="reply replyRoot">
@@ -46,7 +46,7 @@
 			</form>
 		</div>
 		<span id="answer"></span>
-		<button class="fault">Найти</button>
+		<button class="fault btn">Найти</button>
 	</div>
 </template>
 
@@ -62,8 +62,6 @@ export default {
 				rootLim = document.getElementsByClassName("replyRoot")[0].getElementsByClassName("limFault")[0],
 				answer = document.getElementById("answer"),
 				reply = document.getElementsByClassName("reply");
-
-				console.log(reply[0])
 		
 		fault.addEventListener('click', () => {
 			const numerator = document.getElementsByClassName("numerator")[0].value,
@@ -105,19 +103,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .forms {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	margin-bottom: 30px;
-}
-
-input {
-	border: 2px dashed black;
-	width: 150px;
-	margin-bottom: 7px;
 }
 
 button {
@@ -151,11 +143,6 @@ display: inline-block;
 	margin: 0 auto;
 }
 
-.square {
-	padding-left: 15px;
-	background: url('../assets/img/square.png') 0 0/contain no-repeat;
-}
-
 #answer {
 	display: none;
 	font-size: 20px;
@@ -163,5 +150,32 @@ display: inline-block;
 	position: relative;
 	left: 50%;
 	transform: translate(-50%, 0);
+}
+
+
+input:not([type]), input[type=text]:not(.browser-default){
+	background-color: transparent;
+	border: 2px dashed black;
+	border-bottom: 2px dashed black;
+	outline: none;
+	height: 100%;
+	width: 150px;
+	font-size: 16px;
+	margin: 0 0 8px 0;
+	padding: 0;
+	box-shadow: none;
+	box-sizing: content-box;
+	transition: box-shadow .3s, border .3s;
+}
+
+input[type=text]:not(.browser-default):hover,
+input[type=text]:not(.browser-default):focus,
+input[type=text]:not(.browser-default):active {
+	border-bottom: 2px dashed black;
+}
+
+input[type=text]:not(.browser-default).square {
+	padding-left: 15px;
+	background: url('../assets/img/square.png') 0 0/contain no-repeat;
 }
 </style>

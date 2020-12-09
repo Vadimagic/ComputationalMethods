@@ -6,9 +6,6 @@
 
 <script>
 export default {
-	mounted() {
-		document.querySelector(".dropdown-trigger").dropdown();
-	},
 }
 </script>
 
