@@ -14,6 +14,11 @@ const routes = [
 		path: '/lab1',
 		name: 'lab1',
 		component: () => import('../views/Lab1')
+	},
+	{
+		path: '/lab2',
+		name: 'lab2',
+		component: () => import('../views/Lab2')
 	}
 ]
 
