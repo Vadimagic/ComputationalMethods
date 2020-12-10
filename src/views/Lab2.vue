@@ -59,7 +59,7 @@
 				<label for="accuracy">Точность</label>
 			</div>
 			<div class="input-field col offset-s6 s3">
-				<button class="btn">Определить</button>
+				<button @click="search_click" class="btn">Определить</button>
 			</div>
 		</div>
 		<div class="row">
@@ -71,35 +71,35 @@
 				<h4>Метод Зейделя</h4>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="iter1" type="text" class="validate">
+				<input v-model="iter1" disabled id="iter1" type="text" class="validate">
 				<label for="iter1" class="active">Количество итераций</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="iter2" type="text" class="validate">
+				<input v-model="iter2" disabled id="iter2" type="text" class="validate">
 				<label for="iter2" class="active">Количество итераций</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="x1-1" type="text" class="validate">
+				<input v-model="x1_1" disabled id="x1-1" type="text" class="validate">
 				<label for="x1-1" class="active">X1</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="x1-2" type="text" class="validate">
+				<input v-model="x1_2" disabled id="x1-2" type="text" class="validate">
 				<label for="x1-2" class="active">X1</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="x2-1" type="text" class="validate">
+				<input v-model="x2_1" disabled id="x2-1" type="text" class="validate">
 				<label for="x2-1" class="active">X2</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="x2-2" type="text" class="validate">
+				<input v-model="x2_2" disabled id="x2-2" type="text" class="validate">
 				<label for="x2-2" class="active">X2</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="x3-1" type="text" class="validate">
+				<input v-model="x3_1" disabled id="x3-1" type="text" class="validate">
 				<label for="x3-1" class="active">X3</label>
 			</div>
 			<div class="input-field col s6">
-				<input disabled id="x3-2" type="text" class="validate">
+				<input v-model="x3_2" disabled id="x3-2" type="text" class="validate">
 				<label for="x3-2" class="active">X3</label>
 			</div>
 		</div>
@@ -110,7 +110,7 @@
 export default {
 	data() {
 		return {
-			input1_x1: '123123',
+			input1_x1: '',
 			input1_x2: '',
 			input1_x3: '',
 			input2_x1: '',
@@ -122,7 +122,15 @@ export default {
 			cons1: '',
 			cons2: '',
 			cons3: '',
-			accuracy: ''
+			accuracy: '',
+			iter1: '',
+			iter2: '',
+			x1_1: '',
+			x1_2: '',
+			x2_1: '',
+			x2_2: '',
+			x3_1: '',
+			x3_2: ''
 		}
 	},
 	mounted() {
@@ -130,6 +138,7 @@ export default {
 	},
 	methods: {
 		diagonal(arr, cons) {
+			console.log(3)
 			const ind = [];
 			const temp = [];
 			const maxind = [];
@@ -158,82 +167,92 @@ export default {
 					}
 				}
 			}
-			console.log(ind, temp, maxind)
-		}
-	},
+			maxind[0] = arr[0, 0];
+			maxind[1] = arr[1, 1];
+			maxind[2] = arr[2, 2];
+			for (let i = 0; i < 3; i++) {
+					cons[i] = cons[i] / maxind[i];
+				for (let j = 0; j < 3; j++) {
+					arr[i, j] = arr[i, j] / maxind[i];
+				}
+			}
+		},
 
-	check(Tempiter, iter, accuracy) {
-		const e = [];
-		for (let i = 0; i < 3; i++) {
-			e[i] = Math.abs(Tempiter[i] - iter[i]);
-		}
-		let eMax = Math.max(...e);
-		if (eMax > accuracy) {
-			return true;
-		}
-		return false;
-	},
+		check(Tempiter, iter, accuracy) {
+			console.log(2)
+			const e = [];
+			for (let i = 0; i < 3; i++) {
+				e[i] = Math.abs(Tempiter[i] - iter[i]);
+			}
+			let eMax = Math.max(...e);
+			if (eMax > accuracy) {
+				return true;
+			}
+			return false;
+		},
 
-	search_click(sender, e) {
-		const arr = [];
-		const cons = [];
-		const iter = [];
-		const Tempiter = [];
-		let iteration = 0;
-		arr[0, 0] = this.input1_x1;
-		arr[0, 1] = this.input1_x2;
-		arr[0, 2] = this.input1_x3;
-		arr[1, 0] = this.input2_x1;
-		arr[1, 1] = this.input2_x2;
-		arr[1, 2] = this.input2_x3;
-		arr[2, 0] = this.input3_x1;
-		arr[2, 1] = this.input3_x2;
-		arr[2, 2] = this.input3_x3;
-		cons[0] = this.cons1;
-		cons[1] = this.cons2;
-		cons[2] = this.cons3;
-		for (let i = 0; i < 3; i++) {
-			Tempiter[i] = 0;
-		}
+		search_click() {
+			console.log(1)
+			const arr = [];
+			const cons = [];
+			const iter = [];
+			const Tempiter = [];
+			let iteration = 0;
+			arr[0, 0] = this.input1_x1;
+			arr[0, 1] = this.input1_x2;
+			arr[0, 2] = this.input1_x3;
+			arr[1, 0] = this.input2_x1;
+			arr[1, 1] = this.input2_x2;
+			arr[1, 2] = this.input2_x3;
+			arr[2, 0] = this.input3_x1;
+			arr[2, 1] = this.input3_x2;
+			arr[2, 2] = this.input3_x3;
+			cons[0] = this.cons1;
+			cons[1] = this.cons2;
+			cons[2] = this.cons3;
+			for (let i = 0; i < 3; i++) {
+				Tempiter[i] = 0;
+			}
+				
+			let accuracy = this.accuracy;
+
+			this.diagonal(arr, cons);
 			
-		let accuracy = this.accuracy;
+			do {
+				for (let i = 0; i < 3; i++) {
+					iter[i] = Tempiter[i];
+				}
+				Tempiter[0] = -arr[0, 1] * iter[1] + (-arr[0, 2]) * iter[2] + cons[0];
+				Tempiter[1] = -arr[1, 0] * iter[0] + (-arr[1, 2]) * iter[2] + cons[1];
+				Tempiter[2] = -arr[2, 0] * iter[0] + (-arr[2, 1]) * iter[1] + cons[2];
+				iteration++;
+			} while (this.check(Tempiter, iter, accuracy));
 
-		this.diagonal(arr, cons);
-		
-		do {
-			for (let i = 0; i < 3; i++) {
-				iter[i] = Tempiter[i];
+			this.x1_1 = Math.round(Tempiter[0], 3).toString();
+			this.x2_1 = Math.round(Tempiter[1], 3).toString();
+			this.x3_1 = Math.round(Tempiter[2], 3).toString();
+			this.iter1 = iteration.toString();
+
+
+			for (let i = 0; i < 3; i++){
+				Tempiter[i] = 0;
 			}
-			Tempiter[0] = -arr[0, 1] * iter[1] + (-arr[0, 2]) * iter[2] + cons[0];
-			Tempiter[1] = -arr[1, 0] * iter[0] + (-arr[1, 2]) * iter[2] + cons[1];
-			Tempiter[2] = -arr[2, 0] * iter[0] + (-arr[2, 1]) * iter[1] + cons[2];
-			iteration++;
-		} while (this.check(Tempiter, iter, accuracy));
+			iteration = 0;
+			do {
+				for (let i = 0; i < 3; i++) {
+					iter[i] = Tempiter[i];
+				}
+				Tempiter[0] = -arr[0, 1] * Tempiter[1] + (-arr[0, 2]) * Tempiter[2] + cons[0];
+				Tempiter[1] = -arr[1, 0] * Tempiter[0] + (-arr[1, 2]) * Tempiter[2] + cons[1];
+				Tempiter[2] = -arr[2, 0] * Tempiter[0] + (-arr[2, 1]) * Tempiter[1] + cons[2];
+				iteration++;
+			} while (this.check(Tempiter, iter, accuracy)) ;
 
-		JacobiX1.Text = Math.round(Tempiter[0], 3).ToString();
-		JacobiX2.Text = Math.round(Tempiter[1], 3).ToString();
-		JacobiX3.Text = Math.round(Tempiter[2], 3).ToString();
-		iterationBox1.Text = iteration.ToString();
-
-
-		for (let i = 0; i < 3; i++){
-			Tempiter[i] = 0;
+			this.x1_2 = Math.round(Tempiter[0], 3).toString();
+			this.x2_2 = Math.round(Tempiter[1], 3).toString();
+			this.x3_2 = Math.round(Tempiter[2], 3).toString();
+			this.iter2 = iteration.toString();
 		}
-		iteration = 0;
-		do {
-			for (let i = 0; i < 3; i++) {
-				iter[i] = Tempiter[i];
-			}
-			Tempiter[0] = -arr[0, 1] * Tempiter[1] + (-arr[0, 2]) * Tempiter[2] + cons[0];
-			Tempiter[1] = -arr[1, 0] * Tempiter[0] + (-arr[1, 2]) * Tempiter[2] + cons[1];
-			Tempiter[2] = -arr[2, 0] * Tempiter[0] + (-arr[2, 1]) * Tempiter[1] + cons[2];
-			iteration++;
-		} while (this.check(Tempiter, iter, accuracy)) ;
-
-		SeidelX1.Text = Math.Round(Tempiter[0], 3).ToString();
-		SeidelX2.Text = Math.Round(Tempiter[1], 3).ToString();
-		SeidelX3.Text = Math.Round(Tempiter[2], 3).ToString();
-		iterationBox2.Text = iteration.ToString();
 	}
 }
 </script>
