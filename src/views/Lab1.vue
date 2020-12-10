@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
-		<h2>Hello</h2>
+		<h2>Вычисление погрешностей</h2>
+		<p>Составить программу для определения абсолютных, относительных и предельных относительных погрешностей приведенных равенств. Определить какое равенство точнее.</p>
 		<div class="forms">
 			<form action="#" class="form division">
 				<div class="equel">
@@ -104,87 +105,88 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h2 {
-	margin: 10px;
-}
-.container {
-	border: 3px solid #000;
-	border-radius: 20px;
-	margin-top: 20px;
-	padding: 20px;
-}
+	h2 {
+		margin-top: 10px;
+	}
+	.container {
+		border: 3px solid #000;
+		border-radius: 20px;
+		margin-top: 20px;
+		padding: 20px;
+	}
 
-.forms {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	margin-bottom: 30px;
-}
+	.forms {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-bottom: 30px;
+	}
 
-button {
-	display: block;
-}
+	button {
+		display: block;
+	}
 
-.reply {
-	display: none;
-}
+	.reply {
+		display: none;
+	}
 
-.equel {
-	display: flex;
-	align-items: center;
-}
+	.equel {
+		display: flex;
+		align-items: center;
+	}
 
-.equality {
+	.equality {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	.equally {
 	display: inline-block;
-	margin-right: 5px;
-}
+	}
 
-.equally {
-display: inline-block;
-}
+	.expression {
+		margin-right: 5px;
+	}
 
-.expression {
-	margin-right: 5px;
-}
+	.fault {
+		display: block;
+		margin: 0 auto;
+	}
 
-.fault {
-	display: block;
-	margin: 0 auto;
-}
-
-#answer {
-	display: none;
-	font-size: 20px;
-	display: inline-block;
-	position: relative;
-	left: 50%;
-	transform: translate(-50%, 0);
-}
+	#answer {
+		display: none;
+		font-size: 20px;
+		display: inline-block;
+		position: relative;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
 
 
-input:not([type]), input[type=text]:not(.browser-default){
-	background-color: transparent;
-	border: 2px dashed black;
-	border-bottom: 2px dashed black;
-	outline: none;
-	height: 100%;
-	width: 150px;
-	font-size: 16px;
-	margin: 0 0 8px 0;
-	padding: 0;
-	box-shadow: none;
-	box-sizing: content-box;
-	transition: box-shadow .3s, border .3s;
-}
+	input:not([type]), input[type=text]:not(.browser-default){
+		background-color: transparent;
+		border: 2px dashed black;
+		border-bottom: 2px dashed black;
+		outline: none;
+		height: 100%;
+		width: 150px;
+		font-size: 16px;
+		margin: 0 0 8px 0;
+		padding: 0;
+		box-shadow: none;
+		box-sizing: content-box;
+		transition: box-shadow .3s, border .3s;
+	}
 
-input[type=text]:not(.browser-default):hover,
-input[type=text]:not(.browser-default):focus,
-input[type=text]:not(.browser-default):active {
-	border-bottom: 2px dashed black;
-}
+	input[type=text]:not(.browser-default):hover,
+	input[type=text]:not(.browser-default):focus,
+	input[type=text]:not(.browser-default):active {
+		border-bottom: 2px dashed black;
+	}
 
-input[type=text]:not(.browser-default).square {
-	padding-left: 15px;
-	background: url('../assets/img/square.png') 0 0/contain no-repeat;
-}
+	input[type=text]:not(.browser-default).square {
+		padding-left: 15px;
+		background: url('../assets/img/square.png') 0 0/contain no-repeat;
+	}
 </style>

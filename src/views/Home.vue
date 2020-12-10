@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<h2>Вычислительные методы</h2>
+		<h1>Лабы по вычислительным методам</h1>
 		<div class="collection">
 			<router-link  class="collection-item" to="/lab1">Лабораторная работа 1</router-link>
 			<router-link  class="collection-item" to="/lab2">Лабораторная работа 2</router-link>
