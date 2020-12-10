@@ -8,8 +8,8 @@
 				<label for="input1-x1" class="active">x1</label>
 			</div>
 			<div class="input-field col s3">
-				<input v-model="input1_x2" id="input1-x1" type="text" class="validate">
-				<label for="input1-x1" class="active">x2</label>
+				<input v-model="input1_x2" id="input1-x2" type="text" class="validate">
+				<label for="input1-x2" class="active">x2</label>
 			</div>
 			<div class="input-field col s3">
 				<input v-model="input1_x3" id="input1-x3" type="text" class="validate">
@@ -141,18 +141,18 @@ export default {
 	},
 	methods: {
 		fillForm() {
-			this.input1_x1 = '0.34';
-			this.input1_x2 = '-0.04';
-			this.input1_x3 = '0.1';
-			this.cons1 = '0.33';
-			this.input2_x1 = '-0.04';
-			this.input2_x2 = '0.1';
-			this.input2_x3 = '0.12';
-			this.cons2 = '-0.05';
-			this.input3_x1 = '0.1';
-			this.input3_x2 = '0.12';
-			this.input3_x3 = '0.71';
-			this.cons3 = '0.28';
+			this.input1_x1 = '0.61';
+			this.input1_x2 = '0.71';
+			this.input1_x3 = '-0.05';
+			this.cons1 = '0.44';
+			this.input2_x1 = '-1.03';
+			this.input2_x2 = '-2.05';
+			this.input2_x3 = '0.87';
+			this.cons2 = '-1.16';
+			this.input3_x1 = '2.5';
+			this.input3_x2 = '-3.12';
+			this.input3_x3 = '-5.03';
+			this.cons3 = '-7.5';
 			this.accuracy = '0.001';
 		},
 
