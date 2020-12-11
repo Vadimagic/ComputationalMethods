@@ -31,7 +31,6 @@
 			</div>
 		</div>
 		<div class="row" v-if="iteration && x">
-			<h3>Итог:</h3>
 			<div class="input-field col s3">
 				<input v-model="x" disabled id="x" type="text" class="validate">
 				<label for="x" class="active">Корень X</label>

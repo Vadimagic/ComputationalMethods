@@ -30,6 +30,16 @@ const routes = [
 		name: 'lab4',
 		component: () => import('../views/Lab4')
 	},
+	{
+		path: '/lab5',
+		name: 'lab5',
+		component: () => import('../views/Lab5')
+	},
+	{
+		path: '/lab6',
+		name: 'lab6',
+		component: () => import('../views/Lab6')
+	},
 ]
 
 const router = new VueRouter({
