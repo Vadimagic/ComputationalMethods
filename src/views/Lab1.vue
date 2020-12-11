@@ -6,15 +6,15 @@
 			<form action="#" class="form division">
 				<div class="equel">
 					<div class="equality">
-						<input type="text" class="numerator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input v-model="numerator" type="text" class="numerator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 						<div class="line"></div>
-						<input type="text" class="denominator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input v-model="denominator" type="text" class="denominator" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 					</div>
 					<div class="equally"> 
 						<span>
 							= 
 						</span>
-						<input type="text" class="answer_1">
+						<input v-model="answer_1" type="text" class="answer_1">
 					</div>
 				</div>
 				<div class="reply replyDivision">
@@ -28,13 +28,13 @@
 			<form action="#" class="form root">
 				<div class="equel">
 					<div class="expression">
-						<input type="text" class="square" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+						<input v-model="square" type="text" class="square" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
 					</div>
 					<div class="equally"> 
 						<span>
 							= 
 						</span>
-						<input type="text" class="answer_2">
+						<input v-model="answer_2" type="text" class="answer_2">
 					</div>
 				</div>
 				<div class="reply replyRoot">
@@ -47,12 +47,28 @@
 			</form>
 		</div>
 		<span id="answer"></span>
-		<button class="fault btn">Найти</button>
+		<div class="row">
+			<div class="input-field col offset-s3 s2">
+				<button @click="fillForm" class="btn">Заполнить</button>
+			</div>
+			<div class="input-field col offset-s1 s2">
+				<button class="fault btn">Найти</button>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
+	data() {
+		return {
+			numerator: '',
+			denominator: '',
+			square: '',
+			answer_1: '',
+			answer_2: ''
+		}
+	},
 	mounted() {
 		const fault = document.getElementsByClassName("fault")[0],
 				divAbs = document.getElementsByClassName("replyDivision")[0].getElementsByClassName("absFault")[0],
@@ -100,6 +116,15 @@ export default {
 				alert("Заполните формы!")
 			}
 		})
+	},
+	methods: {
+		fillForm() {
+			this.numerator = '24';
+			this.denominator = '27';
+			this.square = '14';
+			this.answer_1 = '0.889',
+			this.answer_2 = '3.74'
+		},
 	}
 }
 </script>
@@ -109,8 +134,6 @@ export default {
 		margin-top: 10px;
 	}
 	.container {
-		border: 3px solid #000;
-		border-radius: 20px;
 		margin-top: 20px;
 		padding: 20px;
 	}
@@ -119,7 +142,6 @@ export default {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		flex-wrap: wrap;
 		margin-bottom: 30px;
 	}
 
@@ -170,7 +192,7 @@ export default {
 		border-bottom: 2px dashed black;
 		outline: none;
 		height: 100%;
-		width: 150px;
+		width: 120px;
 		font-size: 16px;
 		margin: 0 0 8px 0;
 		padding: 0;
