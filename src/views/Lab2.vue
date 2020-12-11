@@ -136,9 +136,6 @@ export default {
 			x3_2: ''
 		}
 	},
-	mounted() {
-		
-	},
 	methods: {
 		fillForm() {
 			this.input1_x1 = '0.61';
@@ -157,7 +154,6 @@ export default {
 		},
 
 		diagonal(arr, cons) {
-			console.log(3)
 			const ind = [];
 			const temp = [];
 			const maxind = [];
@@ -186,7 +182,6 @@ export default {
 					}
 				}
 			}
-			console.log(arr[0], 'arr')
 			maxind[0] = arr[0][0];
 			maxind[1] = arr[1][1];
 			maxind[2] = arr[2][2];
@@ -199,14 +194,11 @@ export default {
 		},
 
 		check(Tempiter, iter, accuracy) {
-			console.log(Tempiter, iter, accuracy)
 			const e = [];
 			for (let i = 0; i < 3; i++) {
 				e[i] = Math.abs(Tempiter[i] - iter[i]);
 			}
 			let eMax = Math.max(...e);
-			console.log(e)
-			console.log(eMax)
 			if (eMax > +accuracy) {
 				return true;
 			}
@@ -214,13 +206,11 @@ export default {
 		},
 
 		search_click() {
-			console.log(1)
 			const arr = [[],[],[]];
 			const cons = [];
 			const iter = [];
 			const Tempiter = [];
 			let iteration = 0;
-			console.log(arr)
 			arr[0][0] = +this.input1_x1;
 			arr[0][1] = +this.input1_x2;
 			arr[0][2] = +this.input1_x3;
@@ -239,15 +229,12 @@ export default {
 				
 			let accuracy = this.accuracy;
 
-			console.dir(arr[0][1])
 			this.diagonal(arr, cons);
-			console.dir(arr[0][1])
 			
 			do {
 				for (let i = 0; i < 3; i++) {
 					iter[i] = Tempiter[i];
 				}
-				console.log(-arr[0][1], iter[1], (-arr[0][2]), iter[2], 'NAN')
 				Tempiter[0] = -arr[0][1] * iter[1] + (-arr[0][2]) * iter[2] + +cons[0];
 				Tempiter[1] = -arr[1][0] * iter[0] + (-arr[1][2]) * iter[2] + +cons[1];
 				Tempiter[2] = -arr[2][0] * iter[0] + (-arr[2][1]) * iter[1] + +cons[2];
