@@ -45,6 +45,11 @@ const routes = [
 		name: 'lab7',
 		component: () => import('../views/Lab7')
 	},
+	{
+		path: '/lab8',
+		name: 'lab8',
+		component: () => import('../views/Lab8')
+	},
 ]
 
 const router = new VueRouter({
