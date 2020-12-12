@@ -9,8 +9,9 @@
 			<router-link  class="collection-item" to="/lab5">Лабораторная работа 5 - Решение нелинейных уравнений</router-link>
 			<router-link  class="collection-item" to="/lab6">Лабораторная работа 6 - Составление интерполяционных формул Лагранжа</router-link>
 			<router-link  class="collection-item" to="/lab7">Лабораторная работа 7 - Составление интерполяционных формул Ньютона</router-link>
-			<router-link  class="collection-item" to="/lab7">Лабораторная работа 8 - Решение нелинейных уравнений</router-link>
-			<router-link  class="collection-item" to="/lab7">Лабораторная работа 9 - Приближение функций</router-link>
+			<router-link  class="collection-item" to="/lab8">Лабораторная работа 8 - Решение нелинейных уравнений</router-link>
+			<router-link  class="collection-item" to="/lab9">Лабораторная работа 9 - Приближение функций</router-link>
+			<router-link  class="collection-item" to="/lab10">Лабораторная работа 10 - Градиентные методы</router-link>
 		</div>
 	</div>
 </template>
