@@ -7,7 +7,7 @@
 			<div class="input-field col offset-s4 s4">
 				<button @click="button1_click" class="btn" style="width: 100%">Решение</button>
 			</div>
-			<div class="col s6">
+			<div class="col s6" v-if="newton_1[0]">
 				<table>
 					<thead>
 						<tr>
@@ -25,7 +25,7 @@
 					</thead>
 				</table>
 			</div>
-			<div class="col s6">
+			<div class="col s6" v-if="newton_2[0]">
 				<table>
 					<thead>
 						<tr>
@@ -49,7 +49,7 @@
 			<div class="input-field col offset-s4 s4">
 				<button @click="button2_click" class="btn" style="width: 100%">Решение</button>
 			</div>
-			<div class="col s6">
+			<div class="col s6" v-if="stefon_1[0]">
 				<table>
 					<thead>
 						<tr>
@@ -67,7 +67,7 @@
 					</thead>
 				</table>
 			</div>
-			<div class="col s6">
+			<div class="col s6" v-if="stefon_1[1]">
 				<table>
 					<thead>
 						<tr>
@@ -200,7 +200,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 	@media only screen and (min-width: 993px) {
 		.container {
 			width: 90%;

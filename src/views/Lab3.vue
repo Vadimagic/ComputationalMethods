@@ -192,6 +192,7 @@ export default {
 			this.x3 = x3.toString();
 		},
 		search_click() {
+			this.text = '\n\n\n\n';
 			const arr = [[],[],[]];
 			const res = [];
 			arr[0][0] = +this.input1_x1;
