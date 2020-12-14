@@ -58,12 +58,11 @@
 							<th>f(Xn)</th>
 							<th>|Xn - Xn - 1|</th>
 						</tr>
-						<tr>
-							<!-- v-for="(td, index) of table" :key="index" -->
-							<td>{1}</td>
-							<td>{2}</td>
-							<td>{3}</td>
-							<td>{4}</td>
+						<tr v-for="(td, index) of stefon_1" :key="index">
+							<td>{{index + 1}}</td>
+							<td>{{td.xn}}</td>
+							<td>{{td.f}}</td>
+							<td>{{td.eps}}</td>
 						</tr>
 					</thead>
 				</table>
@@ -77,12 +76,11 @@
 							<th>f(Xn)</th>
 							<th>|Xn - Xn - 1|</th>
 						</tr>
-						<tr>
-							<!-- v-for="(td, index) of table" :key="index" -->
-							<td>{1}</td>
-							<td>{2}</td>
-							<td>{3}</td>
-							<td>{4}</td>
+						<tr v-for="(td, index) of stefon_2" :key="index">
+							<td>{{index + 1}}</td>
+							<td>{{td.xn}}</td>
+							<td>{{td.f}}</td>
+							<td>{{td.eps}}</td>
 						</tr>
 					</thead>
 				</table>
@@ -97,6 +95,8 @@ export default {
 		return {
 			newton_1: [],
 			newton_2: [],
+			stefon_1: [],
+			stefon_2: [],
 		}
 	},
 	methods: {
@@ -114,8 +114,19 @@ export default {
 				eps: eps
 			})
 		},
-		button2_click() {
-			
+		addSteffon_1(xn, f, eps) {
+			this.stefon_1.push({
+				xn: xn,
+				f: f,
+				eps: eps
+			})
+		},
+		addSteffon_2(xn, f, eps) {
+			this.stefon_2.push({
+				xn: xn,
+				f: f,
+				eps: eps
+			})
 		},
 		button1_click() {
 			this.newton_1 = []
@@ -148,6 +159,41 @@ export default {
 				x1 = x0 - (f1 * h) / (f2 - f1);
 				eps = Math.abs(x1 - x0);
 				this.addNewton_2(x0, stringF, stringEps);
+			} while (Math.abs(x1 - x0) > 0.0000001);
+		},
+		button2_click() {
+			this.stefon_1 = []
+			this.stefon_2 = []
+			let f1, f2, x1, eps, x0 = 4.35, stringF, stringEps;
+			f1 = 3 - Math.sqrt(x0) - 0.5 * Math.log(x0);
+			f2 = 3 - Math.sqrt(x0 + f1) - 0.5 * Math.log(x0 + f1);
+			this.addSteffon_1(x0, f1.toString(), "-");
+			do {
+				x1 = x0 - (f1 * f1) / (f2 - f1);
+				x0 = x1;
+				f1 = 3 - Math.sqrt(x0) - 0.5 * Math.log(x0);
+				f2 = 3 - Math.sqrt(x0 + f1) - 0.5 * Math.log(x0 + f1);
+				x1 = x0 - (f1 * f1) / (f2 - f1);
+				eps = Math.abs(x1 - x0);
+				stringF = String(f1);
+				stringEps = String(eps);
+				this.addSteffon_1(x0, stringF, stringEps);
+			} while (Math.abs(x1 - x0) > 0.0000001);
+
+			x0 = 0.55;
+			f1 = Math.pow(Math.cos(x0), 2) - 0.8 * Math.pow(x0, 2);
+			f2 = Math.pow(Math.cos(x0 + f1), 2) - 0.8 * Math.pow(x0 + f1, 2);
+			this.addSteffon_2(x0, f1.toString(), "-");
+			do {
+				x1 = x0 - (f1 * f1) / (f2 - f1);
+				x0 = x1;
+				f1 = Math.pow(Math.cos(x0), 2) - 0.8 * Math.pow(x0, 2);
+				f2 = Math.pow(Math.cos(x0 + f1), 2) - 0.8 * Math.pow(x0 + f1, 2);
+				x1 = x0 - (f1 * f1) / (f2 - f1);
+				eps = Math.abs(x1 - x0);
+				stringF = String(f1);
+				stringEps = String(eps);
+				this.addSteffon_2(x0, stringF, stringEps);
 			} while (Math.abs(x1 - x0) > 0.0000001);
 		}
 	}
