@@ -5,7 +5,7 @@
 		<div class="row">
 			<h4 class="center-align">Разностный метод Ньютона с постоянным шагом</h4>
 			<div class="input-field col offset-s4 s4">
-				<button @click="button2_click" class="btn" style="width: 100%">Решение</button>
+				<button @click="button1_click" class="btn" style="width: 100%">Решение</button>
 			</div>
 			<div class="col s6">
 				<table>
