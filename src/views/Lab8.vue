@@ -7,7 +7,7 @@
 			<div class="input-field col offset-s4 s4">
 				<button @click="button2_click" class="btn" style="width: 100%">Решение</button>
 			</div>
-			<div class="col s5">
+			<div class="col s6">
 				<table>
 					<thead>
 						<tr>
@@ -28,15 +28,14 @@
 					</thead>
 				</table>
 			</div>
-			<div class="col offset-s2 s5">
+			<div class="col s6">
 				<table>
 					<thead>
 						<tr>
 							<th>n</th>
 							<th>Xn</th>
-							<th>Xn + 1</th>
-							<th>|Xn + 1 - Xn|</th>
-							<th>|f(Xn + 1)|</th>
+							<th>f(Xn)</th>
+							<th>|Xn - Xn - 1|</th>
 						</tr>
 						<tr>
 							<!-- v-for="(td, index) of table" :key="index" -->
@@ -44,7 +43,6 @@
 							<td>{2}</td>
 							<td>{3}</td>
 							<td>{4}</td>
-							<td>{5}</td>
 						</tr>
 					</thead>
 				</table>
@@ -55,7 +53,7 @@
 			<div class="input-field col offset-s4 s4">
 				<button @click="button2_click" class="btn" style="width: 100%">Решение</button>
 			</div>
-			<div class="col s5">
+			<div class="col s6">
 				<table>
 					<thead>
 						<tr>
@@ -76,15 +74,14 @@
 					</thead>
 				</table>
 			</div>
-			<div class="col offset-s2 s5">
+			<div class="col s6">
 				<table>
 					<thead>
 						<tr>
 							<th>n</th>
 							<th>Xn</th>
-							<th>Xn + 1</th>
-							<th>|Xn + 1 - Xn|</th>
-							<th>|f(Xn + 1)|</th>
+							<th>f(Xn)</th>
+							<th>|Xn - Xn - 1|</th>
 						</tr>
 						<tr>
 							<!-- v-for="(td, index) of table" :key="index" -->
@@ -92,7 +89,6 @@
 							<td>{2}</td>
 							<td>{3}</td>
 							<td>{4}</td>
-							<td>{5}</td>
 						</tr>
 					</thead>
 				</table>
