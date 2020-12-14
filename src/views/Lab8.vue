@@ -1,5 +1,5 @@
 <template>
-	<div class="container" style="width: 100%">
+	<div>
 		<h2>Решение нелинейных уравнений</h2>
 		<p>Изучение итерационных методов решения нелинейных уравнений.</p>
 		<div class="row">
@@ -199,11 +199,3 @@ export default {
 	}
 }
 </script>
-
-<style scoped>
-	@media only screen and (min-width: 993px) {
-		.container {
-			width: 90%;
-		}
-	}
-</style>

@@ -74,7 +74,7 @@
 				<input v-model="x3" disabled id="x3" type="text" class="validate">
 				<label for="x3" class="active">X3</label>
 			</div>
-			<pre>{{text}}</pre>
+			<pre style="background: #f4f4f4; padding: 15px; border-radius: 15px">{{text}}</pre>
 		</div>
 	</div>
 </template>
