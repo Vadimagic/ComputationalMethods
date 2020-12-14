@@ -8,6 +8,30 @@
 			</div>
 		</div>
 		<canvas id="myChart"></canvas>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	</div>
 </template>
+
+<script>
+export default {
+	mounted() {
+		let ctx = document.getElementById('myChart').getContext('2d');
+		let myLineChart = new Chart(ctx, {
+			type: 'line',
+			data: [{
+				x: 10,
+				y: 20
+			}, {
+				x: 15,
+				y: 10
+			}],
+			options: {
+				scales: {
+					yAxes: [{
+						stacked: true
+					}]
+				}
+			}
+		});
+	}
+}
+</script>
