@@ -5,6 +5,7 @@ import store from './store'
 import 'materialize-css/dist/js/materialize.min'
 import 'chart.js'
 
+
 Vue.config.productionTip = false
 
 new Vue({
