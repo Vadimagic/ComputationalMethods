@@ -3,7 +3,7 @@
 		<h2>Решение нелинейных уравнений</h2>
 		<p>Изучение итерационных методов решения нелинейных уравнений.</p>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s12" v-if="text">
 				<textarea v-model="text" id="textarea1" class="materialize-textarea" style="height: 150px; background: #f4f4f4;" disabled></textarea>
 			</div>
 			<div class="input-field col offset-s4 s4">
@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<table>
+			<table v-if="table[0]">
 				<thead>
 					<tr>
 						<th>n</th>
