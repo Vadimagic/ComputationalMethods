@@ -21,26 +21,19 @@ export default {
 			fill: false,
 			backgroundColor: window.chartColors.red,
 			borderColor: window.chartColors.red,
-			// lineTension: 0,
-			data: [
-				{x:-5.5,y:-7}, 
-				{x: -4.1,y: 37}, 
-				{x: -2.7,y: 365},
-				{x: -1.3,y: 397},
-				{x: 0.1,y: -100},
-				{x: 1.5,y: 395},
-				{x: 2.9,y: 338},
-				{x: 4.3,y: -112},
-				{x: 5.7,y: -1020},
-				{x: 7.1,y: 196},
-				{x: 8.5,y: 1301},
-			]
+			lineTension: 0,
+			data: x.map((x, i) => {
+				return {x: x, y: y[i]}
+			})
 		}]
 
-		let N = x.length, Pi, L = [], X = 0.34
+		console.log(y)
+
+		//Lagrange
+		let N = x.length, Pi, L = [], Newt = [], X =6.14
 
 		for (let i = 0; i < N; i++) {
-			Pi = 1;
+			Pi = 1
 			for (let j = 0; j < N; j++) {
 				if (j == i) {
 					continue;
@@ -59,6 +52,45 @@ export default {
 			})
 		})
 
+		//Newton
+		let yClone = [...y]
+		let LN = []
+		for (let i = 0; i < N; i++) {
+			Pi = 1
+			for (let j = 0; j < N; j++) {
+				if (j == i) {
+					continue;
+				}
+				Pi *= (X - x[j]) / (x[i] - x[j])
+			}
+			LN.push(y[i] * Pi)
+		}
+		datasets.push({
+			label: 'Полином Ньютона',
+			fill: false,
+			backgroundColor: window.chartColors.purple,
+			borderColor: window.chartColors.purple,
+			data: x.map((x, i) => {
+				return {x: x, y: LN[i]}
+			})
+		})
+
+		console.log(datasets)
+
+		//Splain
+
+		datasets.push({
+			label: 'Сплайн',
+			fill: false,
+			backgroundColor: window.chartColors.orange,
+			borderColor: window.chartColors.orange,
+			data: x.map((x, i) => {
+				return {x: x, y: y[i]}
+			})
+		})
+
+
+
 		this.ctx = document.getElementById('myChart').getContext('2d');
 		let myLineChart = new Chart(this.ctx, {
 			type: 'line',
@@ -71,9 +103,6 @@ export default {
 						type: 'linear',
 						position: 'bottom'
 					}],
-					yAxes: [{
-						stacked: true
-					}]
 				}
 			}
 		})
