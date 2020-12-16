@@ -52,7 +52,7 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button class="fault btn">Найти</button>
+				<button class="fault btn" :disabled="!Boolean(numerator && denominator && square && answer_1 && answer_2)">Найти</button>
 			</div>
 		</div>
 	</div>

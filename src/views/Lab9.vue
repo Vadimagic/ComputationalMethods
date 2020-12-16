@@ -26,9 +26,7 @@ export default {
 				return {x: x, y: y[i]}
 			})
 		}]
-
-		console.log(y)
-
+		
 		//Lagrange
 		let N = x.length, Pi, L = [], Newt = [], X =6.14
 
@@ -74,8 +72,6 @@ export default {
 				return {x: x, y: LN[i]}
 			})
 		})
-
-		console.log(datasets)
 
 		//Splain
 
