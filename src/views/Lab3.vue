@@ -58,7 +58,8 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button @click="search_click" class="btn">Определить</button>
+				<button @click="search_click" class="btn" :disabled="!Boolean(input1_x1 && input1_x2 && input1_x3 && input2_x1 && input2_x2 &&
+					input2_x3 && input3_x1 && input3_x2 && input3_x3 && cons1 && cons2 && cons3)">Определить</button>
 			</div>
 		</div>
 		<div class="row" v-if="x1 && x2 && x3">
