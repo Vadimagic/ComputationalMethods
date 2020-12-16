@@ -27,7 +27,7 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button @click="search_click" class="btn">Определить</button>
+				<button @click="search_click" class="btn" :disabled="!Boolean(equation && from && before && accuracy)">Определить</button>
 			</div>
 		</div>
 		<div class="row" v-if="iteration && x">
