@@ -61,7 +61,7 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button @click="search_click" class="btn">Определить</button>
+				<button @click="search_click" class="btn" :disabled="!Boolean(x && x1 && x2 && x3 && x4 && x5 && x6 && y1 && y2 && y3 && y4 && y5 && y6)">Определить</button>
 			</div>
 		</div>
 		<div class="row" v-if="l">
