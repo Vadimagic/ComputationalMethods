@@ -156,6 +156,7 @@ export default {
 	.equel {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.equality {
