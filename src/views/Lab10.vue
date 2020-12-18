@@ -62,10 +62,10 @@ export default {
 				Y = x1 * x1 + 2 * x2 * x2 - 2 * x1 + x2 - 5; ;
 				k++;
 				alpha = alpha / 2;
-				this.text1 += "Итерация №" + k + ": \n                x1 = " + x1 + "; \n                x2 = " + x2 + "; \n                dx1 = " + dx1 + "; \n                dx2 = " + dx2 + "; \n                F(x1,x2) = " + Y + "\n\n";
+				this.text1 += "Итерация №" + k + ":\n\nx1 = " + x1 + "; \nx2 = " + x2 + "; \ndx1 = " + dx1 + "; \ndx2 = " + dx2 + "; \nF(x1,x2) = " + Y + "\n\n";
 				if (k > iterationMax) break;
 			} while ((Math.abs(x1 - tempX1) >= eps) && (Math.abs(x2 - tempX2) > eps));
-			this.text1 += "Ответ: \n                x* = (" + x1 + "; " + x2 + "); \n                F(x1*,x2*) = " + Y;
+			this.text1 += "Ответ:\nx* = (" + x1 + "; " + x2 + "); \nF(x1*,x2*) = " + Y;
 		},
 		steepest_descent_method() {
 			let eps = 0.4, k = 0,
@@ -78,7 +78,7 @@ export default {
 				step[k] = this.findStep(-10000, 100000, eps, x[k], y[k]);
 				x[k + 1] = x[k] - step[k] * this.pr_dx(x[k]);
 				y[k + 1] = y[k] - step[k] * this.pr_dy(y[k]);
-				this.text2 += "Итерация №" + (k + 1) + ": \n                x1 = " + x[k + 1] + "; \n                x2 = " + y[k + 1] + "; \n                dx1 = " + this.pr_dx(x[k + 1]) + "; \n                dx2 = " + this.pr_dy(y[k + 1]) + "; \n                F(x1,x2) = " + this.f(x[k + 1], y[k + 1]) + "\n\n";
+				this.text2 += "Итерация №" + (k + 1) + ":\n\nx1 = " + x[k + 1] + "; \nx2 = " + y[k + 1] + "; \ndx1 = " + this.pr_dx(x[k + 1]) + "; \ndx2 = " + this.pr_dy(y[k + 1]) + "; \nF(x1,x2) = " + this.f(x[k + 1], y[k + 1]) + "\n\n";
 				if (k > 1) {
 					if (this.norm(x[k + 1] - x[k], y[k + 1] - y[k]) < eps) {
 						break;
@@ -86,7 +86,7 @@ export default {
 				}
 				k++;
 			}
-			this.text2 += "Ответ: \n                x* = (" + x[k + 1] + "; " + y[k + 1] + "); \n                F(x1*,x2*) = " + this.f(x[k + 1], y[k + 1]);
+			this.text2 += "Ответ: \nx* = (" + x[k + 1] + "; " + y[k + 1] + "); \nF(x1*,x2*) = " + this.f(x[k + 1], y[k + 1]);
 		},
 		button1_click() {
 			this.text1 = '';
