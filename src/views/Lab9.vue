@@ -102,8 +102,6 @@ export default {
 				}
 			}
 		})
-	},
-	methods: {
 	}
 }
 </script>
