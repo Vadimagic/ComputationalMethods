@@ -26,10 +26,7 @@ export default {
 				return {x: x, y: y[i]}
 			})
 		}]
-		
-		//Lagrange
 		let N = x.length, Pi, L = [], Newt = [], X =6.14
-
 		for (let i = 0; i < N; i++) {
 			Pi = 1
 			for (let j = 0; j < N; j++) {
@@ -49,8 +46,6 @@ export default {
 				return {x: x, y: L[i]}
 			})
 		})
-
-		//Newton
 		let yClone = [...y]
 		let LN = []
 		for (let i = 0; i < N; i++) {
@@ -72,9 +67,6 @@ export default {
 				return {x: x, y: LN[i]}
 			})
 		})
-
-		//Splain
-
 		datasets.push({
 			label: 'Сплайн',
 			fill: false,
@@ -84,9 +76,6 @@ export default {
 				return {x: x, y: y[i]}
 			})
 		})
-
-
-
 		this.ctx = document.getElementById('myChart').getContext('2d');
 		let myLineChart = new Chart(this.ctx, {
 			type: 'line',
