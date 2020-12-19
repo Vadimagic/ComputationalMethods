@@ -27,7 +27,7 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button @click="search_click" class="btn" :disabled="!Boolean(equation && from && before && accuracy)">Определить</button>
+				<button @click="search_click" class="btn" :disabled="checkInputs()">Определить</button>
 			</div>
 		</div>
 		<div class="row" v-if="iteration && x">
@@ -88,6 +88,9 @@ export default {
 			}
 			this.x = x.toString();
 			this.iteration = iteration.toString();
+		},
+		checkInputs() {
+			return !Boolean(this.equation && isFinite(this.from) && isFinite(this.before) && isFinite(this.accuracy))
 		}
 	}
 }
