@@ -52,7 +52,7 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button class="fault btn" :disabled="!Boolean(numerator && denominator && square && answer_1 && answer_2)">Найти</button>
+				<button class="fault btn" :disabled="checkInputs()">Найти</button>
 			</div>
 		</div>
 	</div>
@@ -125,6 +125,9 @@ export default {
 			this.answer_1 = '0.889',
 			this.answer_2 = '3.74'
 		},
+		checkInputs() {
+			return !Boolean(isFinite(this.numerator) && isFinite(this.denominator) && isFinite(this.square) && isFinite(this.answer_1) && isFinite(this.answer_2))
+		}
 	}
 }
 </script>
