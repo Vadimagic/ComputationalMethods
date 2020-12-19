@@ -58,8 +58,7 @@
 				<button @click="fillForm" class="btn">Заполнить</button>
 			</div>
 			<div class="input-field col offset-s1 s2">
-				<button @click="search_click" class="btn" :disabled="!Boolean(input1_x1 && input1_x2 && input1_x3 && input2_x1 && input2_x2 &&
-					input2_x3 && input3_x1 && input3_x2 && input3_x3 && cons1 && cons2 && cons3)">Определить</button>
+				<button @click="search_click" class="btn" :disabled="checkInputs()">Определить</button>
 			</div>
 		</div>
 		<div class="row" v-if="x1 && x2 && x3">
@@ -209,6 +208,11 @@ export default {
 			res[1] = +this.cons2;
 			res[2] = +this.cons3;
 			this.gauss(arr, res)
+		},
+		checkInputs() {
+			return !Boolean(isFinite(this.input1_x1) && isFinite(this.input1_x2) && isFinite(this.input1_x3) && isFinite(this.input2_x1) &&
+			isFinite(this.input2_x2) && isFinite(this.input2_x3) && isFinite(this.input3_x1) && isFinite(this.input3_x2) && isFinite(this.input3_x3) &&
+			 isFinite(this.cons1) && isFinite(this.cons2) && isFinite(this.cons3))
 		}
 	}
 }
