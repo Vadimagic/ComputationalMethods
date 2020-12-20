@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<h2>Решение нелинейных уравнений</h2>
+		<h2>Решение нелинейных уравнений 2</h2>
 		<p>Изучение итерационных методов решения нелинейных уравнений.</p>
 		<div class="row">
 			<div class="input-field col s12" v-if="text">
@@ -29,11 +29,11 @@
 					</tr>
 				</thead>
 			</table>
-			<div class="input-field col offset-s4 s4">
-				<button @click="button2_click" class="btn" style="width: 100%">Сделать задание 2</button>
-			</div>
 			<div class="input-field col s12" v-if="equation">
 				<input v-model="equation" id="equation" type="text" class="validate" disabled>
+			</div>
+			<div class="input-field col offset-s4 s4">
+				<button @click="button2_click" class="btn" style="width: 100%">Сделать задание 2</button>
 			</div>
 		</div>
 	</div>
