@@ -4,9 +4,6 @@
 			<div class="container">
 				<div class="nav-wrapper">
 					<router-link to="/" class="brand-logo">Вычислительные методы</router-link>
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><router-link to="/">Лабы</router-link></li>
-					</ul>
 				</div>
 			</div>
 		</nav>
