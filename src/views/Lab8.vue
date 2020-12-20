@@ -4,9 +4,6 @@
 		<p>Изучение итерационных методов решения нелинейных уравнений.</p>
 		<div class="row">
 			<h4 class="center-align">Разностный метод Ньютона с постоянным шагом</h4>
-			<div class="input-field col offset-s4 s4">
-				<button @click="button1_click" class="btn" style="width: 100%">Решение</button>
-			</div>
 			<div class="col s6" v-if="newton_1[0]">
 				<table>
 					<thead>
@@ -43,12 +40,12 @@
 					</thead>
 				</table>
 			</div>
+			<div class="input-field col offset-s4 s4">
+				<button @click="button1_click" class="btn" style="width: 100%">Решение</button>
+			</div>
 		</div>
 		<div class="row">
 			<h4 class="center-align">Метод Стеффенсона</h4>
-			<div class="input-field col offset-s4 s4">
-				<button @click="button2_click" class="btn" style="width: 100%">Решение</button>
-			</div>
 			<div class="col s6" v-if="stefon_1[0]">
 				<table>
 					<thead>
@@ -84,6 +81,9 @@
 						</tr>
 					</thead>
 				</table>
+			</div>
+			<div class="input-field col offset-s4 s4">
+				<button @click="button2_click" class="btn" style="width: 100%">Решение</button>
 			</div>
 		</div>
 	</div>
